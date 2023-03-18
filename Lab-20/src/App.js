@@ -1,5 +1,5 @@
 import * as React from "react";
-
+import moment from "moment";
 class Task1 extends React.Component {
     constructor() {
         super();
@@ -288,6 +288,7 @@ class Task10 extends React.Component {
         super();
         this.state = {
             value: '',
+            options: [],
         };
     }
 
@@ -296,17 +297,110 @@ class Task10 extends React.Component {
     }
 
     handleButtonClick = () => {
-        
+        const inputValue = this.state.value;
+        const options = this.state.options;
+        options.push(inputValue);
+        this.setState({ options, value: "" });
     };
 
     render() {
+        const options = this.state.options;
         return (
             <>
                 <input value={this.state.value} onChange={this.handleChange.bind(this)} />
                 <button onClick={this.handleButtonClick}>Add option</button>
+                <select>
+                    {options.map((option, index) => (
+                        <option key={index}>{option}</option>
+                    ))}
+                </select>
             </>);
     }
 }
+
+class Task11 extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            inputDisabled: true,
+        };
+    }
+
+    handleCheckboxChange = (event) => {
+        this.setState({ inputDisabled: !event.target.checked });
+    };
+
+
+    render() {    
+        return (
+            <div>
+                <input type="checkbox" onChange={this.handleCheckboxChange} />
+                <input type="text" disabled={this.state.inputDisabled} />
+                
+            </div>
+        );
+    }
+}
+
+class Task12 extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            selectedDay: moment().format("D"),
+            selectedMonth: moment().format("M"),
+            selectedYear: moment().format("YYYY"),
+        };
+    }
+
+    handleDayChange = (event) => {
+        this.setState({ selectedDay: event.target.value });
+    };
+
+    handleMonthChange = (event) => {
+        this.setState({ selectedMonth: event.target.value });
+    };
+
+    handleYearChange = (event) => {
+        this.setState({ selectedYear: event.target.value });
+    };
+
+    render() {
+        const { selectedDay, selectedMonth, selectedYear } = this.state;
+
+        const selectedDate = moment(`${selectedYear}-${selectedMonth}-${selectedDay}`);
+        const dayOfWeek = selectedDate.format("dddd");
+
+        return (
+            <div>
+                <select value={selectedDay} onChange={this.handleDayChange}>
+                    {Array.from({ length: selectedDate.daysInMonth() }, (_, i) => i + 1).map(
+                        (day) => (
+                            <option key={day} value={day}>
+                                {day}
+                            </option>
+                        )
+                    )}
+                </select>
+                <select value={selectedMonth} onChange={this.handleMonthChange}>
+                    {moment.months().map((month, index) => (
+                        <option key={month} value={index + 1}>
+                            {month}
+                        </option>
+                    ))}
+                </select>
+                <select value={selectedYear} onChange={this.handleYearChange}>
+                    {Array.from({ length: 10 }, (_, i) => moment().year() - i).map((year) => (
+                        <option key={year} value={year}>
+                            {year}
+                        </option>
+                    ))}
+                </select>
+                <p>{dayOfWeek}</p>
+            </div>
+        );
+    }
+}
+
 class App extends React.Component {
     render() {
         return (
@@ -330,6 +424,10 @@ class App extends React.Component {
                 <div>Task9: <Task9 /></div>
                 --------------------
                 <div>Task10: <Task10 /></div>
+                --------------------
+                <div>Task11: <Task11 /></div>
+                --------------------
+                <div>Task12: <Task12 /></div>
                 --------------------
             </>
         );
