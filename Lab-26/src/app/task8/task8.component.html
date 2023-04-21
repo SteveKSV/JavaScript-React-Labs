@@ -1,0 +1,7 @@
+<h3>Task 8: </h3>
+<ul>
+  <li *ngFor="let country of countries">
+    {{country.name}}:
+    <span *ngFor="let city of country.cities">{{city}}</span>
+  </li>
+</ul>

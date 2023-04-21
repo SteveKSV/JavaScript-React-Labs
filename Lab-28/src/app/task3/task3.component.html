@@ -1,0 +1,7 @@
+<h3>Task 3: </h3>
+<input type="checkbox" [(ngModel)]="onlyWithP" />
+  <label>Only countries with 'p'</label>
+  <ul>
+    <li *ngFor="let country of filteredCountries">{{ country }}</li>
+  </ul>
+

@@ -1,0 +1,8 @@
+<h3>Task 4</h3>
+
+<div *ngFor="let checkbox of checkboxes; let i = index">
+  <input type="checkbox" [(ngModel)]="checkboxes[i]" [id]="'checkbox' + i">
+  <label [for]="'checkbox' + i">Checkbox {{i}}</label>
+</div>
+
+<input type="text" [(ngModel)]="inputText" (input)="updateCheckboxes()">

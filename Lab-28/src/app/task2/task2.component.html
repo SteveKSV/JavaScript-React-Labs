@@ -1,0 +1,13 @@
+<h3>Task 2: </h3>
+  <h5>Countries:</h5>
+  <ul>
+    <li *ngFor="let country of countries">{{ country }}</li>
+  </ul>
+
+  <label for="new-country-input">Add new country:</label>
+  <input type="text" id="new-country-input" #newCountryInput>
+  <button (click)="addCountry(newCountryInput.value); newCountryInput.value=''">Add</button>
+
+  <label for="remove-country-input">Remove country:</label>
+  <input type="text" id="remove-country-input" #removeCountryInput>
+  <button (click)="removeCountry(removeCountryInput.value)">Remove</button>

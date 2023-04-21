@@ -1,0 +1,5 @@
+<h3>Task 3: </h3>
+<ul>
+  <li *ngFor="let country of countries">{{ country }}</li>
+</ul>
+<input [(ngModel)]="newCountry" (blur)="addCountry()">
