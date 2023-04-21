@@ -1,0 +1,11 @@
+<h2>Task 7: </h2>
+
+<p [ngClass]="{ 'red': isRed, 'line-through': isLineThrough }">Some text</p>
+
+<label>
+  <input type="checkbox" (change)="toggleRed()">Add red color
+</label>
+
+<label>
+  <input type="checkbox" (change)="toggleLineThrough()">Add line-through
+</label>

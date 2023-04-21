@@ -1,0 +1,5 @@
+<h3>Task 4</h3>
+
+<button (click)="this.isVisible ? hide() : show()">{{this.isVisible ? "Приховати абзац" : "Показати абзац"}}</button>
+<p *ngIf="isVisible">Це текст, який потрібно сховати або показати</p>
+

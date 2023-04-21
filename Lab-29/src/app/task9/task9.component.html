@@ -1,0 +1,7 @@
+<h2>Task 9: </h2>
+<select [(ngModel)]="selectedCity">
+  <option *ngFor="let city of cities" [ngValue]="city">{{city}}</option>
+</select>
+
+<input type="text" [(ngModel)]="selectedCity">
+<p>Вибране місто: {{selectedCity}}</p>
