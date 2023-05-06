@@ -1,0 +1,15 @@
+<h2>Task 8: </h2>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users | slice:0:3">
+      <td>{{ user.name }}</td>
+      <td>{{ user.age }}</td>
+    </tr>
+  </tbody>
+</table>

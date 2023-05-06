@@ -1,0 +1,19 @@
+<h3>Task 6</h3>
+
+<label>
+  <input type="checkbox" [(ngModel)]="isAscending"> Sort by Age
+</label>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of sortedUsers">
+      <td>{{ user.name }}</td>
+      <td>{{ user.age }}</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,9 @@
+<h2>Task 12:</h2>
+
+<input [(ngModel)]="searchText" placeholder="Search by name...">
+<table>
+  <tr *ngFor="let user of filterUsers()">
+    <td>{{user.name}}</td>
+    <td>{{user.age}}</td>
+  </tr>
+</table>

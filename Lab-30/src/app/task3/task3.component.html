@@ -1,0 +1,17 @@
+<h3>Task 3: </h3>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Birthdate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.id }}</td>
+      <td>{{ user.name }}</td>
+      <td>{{ user.birthdate | date: 'dd.MM.yyyy' }}</td>
+    </tr>
+  </tbody>
+</table>

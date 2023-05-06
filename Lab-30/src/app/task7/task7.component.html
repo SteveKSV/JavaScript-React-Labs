@@ -1,0 +1,24 @@
+<h2>Task 7: </h2>
+
+    <div>
+      <label>
+        <select [(ngModel)]="selectedField">
+          <option *ngFor="let field of fields" [value]="field">{{ field }}</option>
+        </select>
+      </label>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th *ngFor="let field of fields" (click)="setSortField(field)">
+            {{ field }} <span *ngIf="field === selectedField">▲</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of sortedUsers">
+          <td>{{ user.name }}</td>
+          <td>{{ user.age }}</td>
+        </tr>
+      </tbody>
+    </table>

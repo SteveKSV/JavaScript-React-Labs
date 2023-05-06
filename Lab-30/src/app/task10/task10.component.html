@@ -1,0 +1,25 @@
+<h2>Task 10:</h2>
+
+<div>
+  <label for="limit">Limit:</label>
+  <input type="number" name="limit" id="limit" [(ngModel)]="limit">
+</div>
+<div>
+  <label for="offset">Offset:</label>
+  <input type="number" name="offset" id="offset" [(ngModel)]="offset">
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users | slice:offset:(offset+limit)">
+      <td>{{ user.name }}</td>
+      <td>{{ user.age }}</td>
+    </tr>
+  </tbody>
+</table>

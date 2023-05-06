@@ -1,0 +1,17 @@
+<h3>Task 1</h3>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.id }}</td>
+      <td>{{ user.name | uppercase }}</td>
+      <td>{{ user.age }}</td>
+    </tr>
+  </tbody>
+</table>
